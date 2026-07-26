@@ -1,0 +1,41 @@
+export const glucoseDetail = {
+  lastReading: "最近一筆：1 天前",
+  summary: { low: 150, high: 300, average: 217 },
+  donut: { good: 1, high: 2, low: 0, total: 3 },
+  trend: {
+    // Kept within summary.low–summary.high (150–300) so the chart and the stat boxes agree.
+    series: [180, 220, 300, 150, 240, 217],
+    yDomain: [100, 320],
+    highlightIndex: 5,
+    highlightLabel: "217 mg/dL",
+    highlightDate: "2026/04/14",
+  },
+  mealComparison: {
+    entries: [
+      { date: "4/09", meal: "早餐", before: 130, after: 145 },
+      { date: "4/10", meal: "晚餐", before: 140, after: 150 },
+      { date: "4/11", meal: "早餐", before: 160, after: 170 },
+      { date: "4/12", meal: "晚餐", before: 135, after: 148 },
+    ],
+    highlightIndex: 2,
+    highlightLabel: "160 / 170 (mg/dL)",
+    highlightSubLabel: "飯前 / 飯後",
+    highlightDate: "2026/04/11",
+  },
+  timeOfDayRanges: [
+    { label: "晨間/空腹", range: null },
+    { label: "早餐前", range: null },
+    { label: "早餐後", range: { min: 150, max: 150, average: 150, status: "good" } },
+    { label: "午餐前", range: { min: 220, max: 283, average: 250, status: "bad" } },
+    { label: "午餐後", range: null },
+    { label: "晚餐前", range: null },
+    { label: "晚餐後", range: null },
+    { label: "點心前", range: null },
+    { label: "點心後", range: null },
+    { label: "運動前", range: null },
+    { label: "運動後", range: null },
+    { label: "就寢", range: null },
+    { label: "半夜", range: null },
+    { label: "其他", range: null },
+  ],
+};
