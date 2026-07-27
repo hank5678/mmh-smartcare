@@ -2,6 +2,7 @@ import DropletIcon from "../assets/icons/DropletIcon.jsx";
 import HeartPulseIcon from "../assets/icons/HeartPulseIcon.jsx";
 import PersonIcon from "../assets/icons/PersonIcon.jsx";
 import { ROUTES } from "../routes.js";
+import { buildEcgWaveform } from "./ecgWaveform.js";
 
 export const trendDates = ["4/09", "4/10", "4/11", "4/12", "4/13", "4/14"];
 
@@ -61,6 +62,7 @@ export const metrics = [
     average: 71,
     timestamp: "今天 下午7:56",
     rhythm: "竇性心律",
+    waveform: buildEcgWaveform(),
     icon: HeartPulseIcon,
     color: "bad",
     to: ROUTES.ECG,

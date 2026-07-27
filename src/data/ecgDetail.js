@@ -1,3 +1,5 @@
+import { buildEcgWaveform } from "./ecgWaveform.js";
+
 export const ecgDetail = {
   title: "心電圖(ECG)",
   filterDefault: "最近 14 天",
@@ -18,9 +20,9 @@ export const ecgDetail = {
     yDomain: [0, 150],
   },
   records: [
-    { rhythm: "竇性心律", timestamp: "4/1 下午6:32", avgBpm: 71, duration: "30 秒" },
-    { rhythm: "竇性心律", timestamp: "4/1 下午6:32", avgBpm: 71, duration: "30 秒" },
-    { rhythm: "竇性心律", timestamp: "4/1 下午6:32", avgBpm: 71, duration: "30 秒" },
+    { rhythm: "竇性心律", timestamp: "4/1 下午6:32", avgBpm: 71, duration: "30 秒", waveform: buildEcgWaveform() },
+    { rhythm: "竇性心律", timestamp: "4/1 下午6:32", avgBpm: 71, duration: "30 秒", waveform: buildEcgWaveform() },
+    { rhythm: "竇性心律", timestamp: "4/1 下午6:32", avgBpm: 71, duration: "30 秒", waveform: buildEcgWaveform() },
   ],
 };
 
@@ -29,4 +31,5 @@ export const ecgRecordDetail = {
   status: "正常",
   datetime: "2026 年 4 月 1 日 下午 6:31",
   avgBpm: 71,
+  waveform: buildEcgWaveform({ beats: 8 }),
 };

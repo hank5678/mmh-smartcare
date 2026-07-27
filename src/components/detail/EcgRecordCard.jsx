@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Clock, Heart } from "lucide-react";
 import HeartPulseIcon from "../../assets/icons/HeartPulseIcon.jsx";
-import ecgWave from "../../assets/icons/ecg-wave.svg";
+import EcgWaveChart from "../metric-card/charts/EcgWaveChart.jsx";
 import { ROUTES } from "../../routes.js";
 
-export default function EcgRecordCard({ rhythm, timestamp, avgBpm, duration }) {
+export default function EcgRecordCard({ rhythm, timestamp, avgBpm, duration, waveform }) {
   return (
     <Link to={ROUTES.ECG_RECORD} className="block rounded-[10px] border border-[#d8d8d8] bg-card p-4">
       <div className="flex items-center justify-between">
@@ -28,7 +28,7 @@ export default function EcgRecordCard({ rhythm, timestamp, avgBpm, duration }) {
         </span>
       </div>
       <div className="mt-3 overflow-hidden rounded-[5px] border border-warn bg-page">
-        <img src={ecgWave} alt="心電圖波形" className="h-[72px] w-full" />
+        <EcgWaveChart data={waveform} height={72} />
       </div>
     </Link>
   );

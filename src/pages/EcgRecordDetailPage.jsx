@@ -1,6 +1,6 @@
 import { Heart } from "lucide-react";
 import TopBar from "../components/TopBar.jsx";
-import ecgWave from "../assets/icons/ecg-wave.svg";
+import EcgWaveChart from "../components/metric-card/charts/EcgWaveChart.jsx";
 import { ecgRecordDetail as d } from "../data/ecgDetail.js";
 
 export default function EcgRecordDetailPage() {
@@ -15,7 +15,7 @@ export default function EcgRecordDetailPage() {
         <p className="text-[16px] text-text">{d.datetime}</p>
 
         <div className="overflow-hidden rounded-[10px] border border-[#d8d8d8] bg-card p-4">
-          <img src={ecgWave} alt="心電圖波形" className="h-[140px] w-full" />
+          <EcgWaveChart data={d.waveform} height={140} />
         </div>
 
         <div className="flex items-center gap-1.5 text-[16px] text-[#2c3333]">

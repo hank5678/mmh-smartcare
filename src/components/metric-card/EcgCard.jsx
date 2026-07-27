@@ -1,6 +1,6 @@
-import ecgWave from "../../assets/icons/ecg-wave.svg";
 import CardShell from "./CardShell.jsx";
 import MetricValue from "./MetricValue.jsx";
+import EcgWaveChart from "./charts/EcgWaveChart.jsx";
 
 export default function EcgCard({ metric }) {
   return (
@@ -9,7 +9,7 @@ export default function EcgCard({ metric }) {
       <div className="rounded-b-[10px] bg-card-footer px-4 pb-4">
         <p className="pb-2 text-[14px] tracking-[0.7px] text-text">{metric.rhythm}</p>
         <div className="overflow-hidden rounded-[5px] border border-warn bg-page">
-          <img src={ecgWave} alt="心電圖波形" className="h-[72px] w-full" />
+          <EcgWaveChart data={metric.waveform} height={72} />
         </div>
       </div>
     </CardShell>
