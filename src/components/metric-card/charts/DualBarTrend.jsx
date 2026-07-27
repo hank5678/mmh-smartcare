@@ -24,11 +24,13 @@ export default function DualBarTrend({ dates, systolic, diastolic, yDomain }) {
         <BarChart data={data} margin={{ top: 8, right: 12, bottom: 0, left: 0 }}>
           <CartesianGrid vertical={false} stroke={CHART_COLORS.grid} />
           <XAxis
+            xAxisId="date"
             dataKey="date"
             tickLine={false}
             axisLine={false}
             tick={{ fontSize: 12, fill: CHART_COLORS.axis }}
           />
+          <XAxis xAxisId="overlay" dataKey="date" hide />
           <YAxis
             domain={yDomain}
             tickLine={false}
@@ -36,8 +38,9 @@ export default function DualBarTrend({ dates, systolic, diastolic, yDomain }) {
             width={32}
             tick={{ fontSize: 12, fill: CHART_COLORS.axis }}
           />
-          <Bar dataKey="systolic" fill={CHART_COLORS.warn} radius={[5, 5, 5, 5]} barSize={8} />
-          <Bar dataKey="diastolic" fill={CHART_COLORS.primary} radius={[5, 5, 5, 5]} barSize={8} />
+          {/* Same barSize + separate xAxisIds makes the bars overlap instead of sit side by side; diastolic is always <= systolic so it renders as an inset. */}
+          <Bar xAxisId="date" dataKey="systolic" fill={CHART_COLORS.warn} radius={[5, 5, 5, 5]} barSize={12} />
+          <Bar xAxisId="overlay" dataKey="diastolic" fill={CHART_COLORS.primary} radius={[5, 5, 5, 5]} barSize={12} />
         </BarChart>
       </ResponsiveContainer>
     </div>
